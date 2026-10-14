@@ -1,0 +1,93 @@
+{
+  "title": "The Quiet Interval",
+  "institution": "Morrow Institute / Records Annex",
+  "chapter": "Last accession, 05:17",
+  "protagonist": "Ira Sen, temporary records analyst",
+  "opening": "At 05:30 the Annex's paper archive will be sealed for transfer. You signed the public transcript of Acoustic Trial 17. The original carbon lists a return at 21:14; the released copy ends at 21:07. Neri Vale, the night technician named in the review, left before you could ask why. You have one shift to reconcile the line before your initials become the archive's final account.",
+  "objective": "Reconcile the missing 21:14 return before the record transfer.",
+  "question": "What produced the second return, and why was its line removed?",
+  "documents": [
+    {
+      "id": "transfer_notice",
+      "title": "Transfer notice",
+      "location": "North corridor",
+      "body": "MORROW INSTITUTE / FINAL ACCESSION\nThe digitization crew arrives at 05:30. Do not replace a signed sheet. Add a linked correction or mark the file unresolved.\n\nIra — your initials are on the public transcript. The carbon copy is still in Records.\n— Tess, night registrar",
+      "evidenceTitle": "Last accession notice",
+      "evidenceBody": "The archive transfer begins at 05:30. Corrections must be attached to the signed record; the original cannot be silently replaced."
+    },
+    {
+      "id": "public_report",
+      "title": "Acoustic Trial 17 / release copy",
+      "location": "Records desk",
+      "body": "MORROW INSTITUTE / SOUND ISOLATION STUDY\n\nObservation window: 21:00–21:10\nReceiver A: one return, 21:07\nReceiver B: aligned return, 21:07\nConclusion: one internal reflection.\n\nSigned for public transcription: I. Sen\nMargin: a faint later mark was considered clock drift.",
+      "evidenceTitle": "Released Trial 17 copy",
+      "evidenceBody": "The public transcript stops at 21:07 and labels the later carbon mark as possible clock drift. Ira Sen signed the transcript."
+    },
+    {
+      "id": "carbon_slip",
+      "title": "Carbon slip in the drawer",
+      "location": "Records desk",
+      "body": "21:14 / SECOND RETURN\nDo not call it a second reflection until the clocks are aligned.\n\nPencil on the back: The small card with the two ruled columns is not a duplicate. Keep it with the room-temperature strip.",
+      "evidenceTitle": "Unfiled 21:14 carbon mark",
+      "evidenceBody": "A second return was recorded at 21:14. The writer warns that the clocks must be aligned before interpreting it."
+    },
+    {
+      "id": "alignment_card",
+      "title": "Receiver alignment card",
+      "location": "Records desk",
+      "body": "TRIAL 17 / BENCH SETUP\n\nA and B were aligned against the same pulse at 20:00. Apply no additional clock offset.\nThe receiver faces are 12.00 m apart on one straight centerline.\nThe source is known to lie between the two faces.\n\nCarbon trace, 21:14:02:\nA: 21:14:02.000\nB: 21:14:02.016\n\nKeep the sign: B hears it later.",
+      "evidenceTitle": "Aligned receiver positions",
+      "evidenceBody": "Receivers A and B are 12.00 m apart. Their clocks share an alignment; at 21:14, B records the pulse 0.016 seconds after A. The source is between them."
+    },
+    {
+      "id": "temperature_strip",
+      "title": "Room-temperature strip",
+      "location": "Signal lab",
+      "body": "BAY TEMPERATURE / 21:14\n15 °C\n\nSound-speed approximation for this notebook:\nc = 331 + 0.6T metres per second\n\nThe formula is for this room and this estimate. Do not use the outside weather reading.",
+      "evidenceTitle": "Signal bay temperature",
+      "evidenceBody": "The bay was 15 °C. Its calibration notebook gives c = 331 + 0.6T metres per second for the sound-speed estimate."
+    },
+    {
+      "id": "review_note",
+      "title": "Review note / preliminary interpretation",
+      "location": "Signal lab",
+      "body": "A later return could mean a door opened during the isolation run. The entry ledger lists no authorized chamber access after 21:00.\n\nDo not attribute the pulse to a person until the receiver geometry has been checked. A waveform names no one.",
+      "evidenceTitle": "Preliminary access interpretation",
+      "evidenceBody": "The initial review suspected a door opening, but the note itself warns that the waveform cannot identify a person and the receiver geometry remains unchecked."
+    },
+    {
+      "id": "maintenance_memo",
+      "title": "Unsent maintenance memo",
+      "location": "Calibration room",
+      "body": "Neri Vale / night shift\n\nI pressed the service-call button from the corridor at 21:14. The isolation door was shut. I wanted to know whether the service line could be heard inside before the overnight staff used the chamber.\n\nThe return sits 3.30 m from receiver A on the floor plan. It is the service bell, not someone crossing the seal. The bell does not carry through the closed door. Please repair the line before another night shift.\n\nI did not add this to Trial 17. It was outside the approved run, and I should have filed a separate safety note.",
+      "evidenceTitle": "Neri Vale's service-line memo",
+      "evidenceBody": "Neri says she pressed the corridor service bell during the trial to check the emergency line. Her memo asks for a repair and acknowledges that she failed to file a separate safety note."
+    },
+    {
+      "id": "supervisor_addendum",
+      "title": "Draft addendum / never attached",
+      "location": "Calibration room",
+      "body": "Dr. S. Orin / records copy\n\nI removed the 21:14 mark from the public summary because it was not part of the approved acoustic run. I wrote “clock drift” in the margin instead of asking why the service line sounded different through the isolation door.\n\nNeri reported the failed call line the next morning. I treated the missing form as evidence that she had moved the receiver. I was wrong to let an unfiled test become an accusation.\n\nThis correction should travel with the original sheet. Both are part of the record.",
+      "evidenceTitle": "Supervisor's unfiled draft",
+      "evidenceBody": "The supervisor excluded an out-of-scope service-bell test and mislabeled it clock drift. That omission helped turn an incomplete record into an accusation against Neri."
+    }
+  ],
+  "puzzle": {
+    "id": "receiver_location",
+    "title": "Locate the 21:14 source",
+    "prompt": "The source lies between two receivers 12.00 m apart. Their aligned clocks show a 0.016 s arrival difference. At 15 °C, use c = 331 + 0.6T m/s. Enter the source's distance from receiver A (the west receiver), in metres, to the nearest 0.01 m.",
+    "answer": 3.28,
+    "tolerance": 0.01,
+    "answerFormat": "A decimal number in metres. Accepted only when its absolute difference from 3.28 is at most 0.01 m.",
+    "reasoning": "At 15 °C, c = 331 + 0.6(15) = 340 m/s. The 0.016 s lag is a path-length difference of 340 × 0.016 = 5.44 m. If w is the distance from A and e is the distance from B, then w + e = 12.00 and e − w = 5.44. Adding gives 2e = 17.44, so e = 8.72 and w = 3.28 m.",
+    "hints": [
+      "The carbon mark is a time difference between two receivers. Start with the alignment card: are the clocks still offset?",
+      "A travel-time difference becomes a path-length difference when you multiply it by the room's sound speed. The temperature strip supplies the approximation.",
+      "The source is between the receivers, so the two path lengths add to 12.00 m. B hears it later, so the east path is longer.",
+      "Write w + e = 12 and e − w = 5.44. Add those equations to find e, then subtract to find the requested west distance w."
+    ],
+    "successText": "The location is consistent with the service-call button on the corridor side of the isolation door. The 21:14 line is no longer an unexplained chamber entry."
+  },
+  "ending": "You attach a correction beside the signed release copy instead of replacing it. The transfer ledger now holds both the measured result and Neri's safety note. In the corridor, the service line answers once from the other side of the closed door. For the first time tonight, the record contains the difference between an echo and a person.",
+  "endingConsequence": "Trial 17 is amended; the service-line fault is entered for repair, and Neri's personnel note is corrected. The original release copy remains preserved beside the addendum."
+}
