@@ -233,7 +233,7 @@ public sealed class QuietHoursUI : MonoBehaviour
         GameObject panel = MakePanel("Document modal", new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(1580, 920), new Color(0.055f, 0.085f, 0.09f, 0.985f));
         MakeText(panel.transform, "Modal eyebrow", 17, bodyFont, Brass, TextAnchor.MiddleLeft,
             new Vector2(0.075f, 0.92f), Vector2.zero, new Vector2(1430, 40)).text = eyebrow;
-        Image line = MakeImage(panel.transform, "Divider", new Color(0.78f, 0.67f, 0.44f, 0.72f), new Vector2(0.075f, 0.875f), Vector2.zero, new Vector2(1420, 2));
+        MakeImage(panel.transform, "Divider", new Color(0.78f, 0.67f, 0.44f, 0.72f), new Vector2(0.075f, 0.875f), Vector2.zero, new Vector2(1420, 2));
         return panel;
     }
 
