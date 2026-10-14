@@ -59,7 +59,7 @@
       "id": "maintenance_memo",
       "title": "Unsent maintenance memo",
       "location": "Calibration room",
-      "body": "Neri Vale / night shift\n\nI pressed the service-call button from the corridor at 21:14. The isolation door was shut. I wanted to know whether the service line could be heard inside before the overnight staff used the chamber.\n\nThe return sits 3.30 m from receiver A on the floor plan. It is the service bell, not someone crossing the seal. The bell does not carry through the closed door. Please repair the line before another night shift.\n\nI did not add this to Trial 17. It was outside the approved run, and I should have filed a separate safety note.",
+      "body": "Neri Vale / night shift\n\nI pressed the service-call button from the corridor at 21:14. The isolation door was shut. I wanted to know whether the service line could be heard inside before the overnight staff used the chamber.\n\nThe return sits about 3.3 m from receiver A on the floor plan. It is the service bell, not someone crossing the seal. The bell does not carry through the closed door. Please repair the line before another night shift.\n\nI did not add this to Trial 17. It was outside the approved run, and I should have filed a separate safety note.",
       "evidenceTitle": "Neri Vale's service-line memo",
       "evidenceBody": "Neri says she pressed the corridor service bell during the trial to check the emergency line. Her memo asks for a repair and acknowledges that she failed to file a separate safety note."
     },
@@ -91,3 +91,4 @@
   "ending": "You attach a correction beside the signed release copy instead of replacing it. The transfer ledger now holds both the measured result and Neri's safety note. In the corridor, the service line answers once from the other side of the closed door. For the first time tonight, the record contains the difference between an echo and a person.",
   "endingConsequence": "Trial 17 is amended; the service-line fault is entered for repair, and Neri's personnel note is corrected. The original release copy remains preserved beside the addendum."
 }
+

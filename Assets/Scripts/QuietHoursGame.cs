@@ -9,6 +9,7 @@ public sealed class QuietHoursGame : MonoBehaviour
 {
     const float RoomWidth = 16f;
     const float FloorY = -2.79f;
+    const float CharacterPixelsPerUnit = 120f;
     const string SaveKey = "QuietHours.Save.v1";
     static readonly string[] RoomNames = { "North Corridor", "Records Wing", "Signal Lab", "Calibration Room" };
     static readonly string[] RoomSprites = { "Room_Corridor", "Room_Records", "Room_SignalLab", "Room_Calibration" };
@@ -140,7 +141,7 @@ public sealed class QuietHoursGame : MonoBehaviour
         Texture2D stepA = Resources.Load<Texture2D>("QuietHours/Character/Ira_StepA");
         Texture2D stepB = Resources.Load<Texture2D>("QuietHours/Character/Ira_StepB");
         SpriteRenderer sprite = actor.GetComponent<SpriteRenderer>();
-        if (idle != null) sprite.sprite = Sprite.Create(idle, new Rect(0, 0, idle.width, idle.height), new Vector2(0.5f, 0f), 384f);
+        if (idle != null) sprite.sprite = Sprite.Create(idle, new Rect(0, 0, idle.width, idle.height), new Vector2(0.5f, 0f), CharacterPixelsPerUnit);
         sprite.sortingOrder = 5;
         Rigidbody2D body = actor.GetComponent<Rigidbody2D>();
         body.bodyType = RigidbodyType2D.Dynamic;
@@ -156,8 +157,8 @@ public sealed class QuietHoursGame : MonoBehaviour
         player.controlsEnabled = false;
         player.animationFrames = new Sprite[3];
         player.animationFrames[0] = sprite.sprite;
-        if (stepA != null) player.animationFrames[1] = Sprite.Create(stepA, new Rect(0, 0, stepA.width, stepA.height), new Vector2(0.5f, 0f), 384f);
-        if (stepB != null) player.animationFrames[2] = Sprite.Create(stepB, new Rect(0, 0, stepB.width, stepB.height), new Vector2(0.5f, 0f), 384f);
+        if (stepA != null) player.animationFrames[1] = Sprite.Create(stepA, new Rect(0, 0, stepA.width, stepA.height), new Vector2(0.5f, 0f), CharacterPixelsPerUnit);
+        if (stepB != null) player.animationFrames[2] = Sprite.Create(stepB, new Rect(0, 0, stepB.width, stepB.height), new Vector2(0.5f, 0f), CharacterPixelsPerUnit);
         GameObject steps = new GameObject("Footsteps");
         steps.transform.SetParent(actor.transform, false);
         player.footsteps = steps.AddComponent<AudioSource>();
@@ -233,12 +234,13 @@ public sealed class QuietHoursGame : MonoBehaviour
 
     string InteractionPrompt(Point point)
     {
-        if (point.gate && !save.puzzleSolved) return "E   EXAMINE SEALED DOOR     •     Resolve the receiver readings to open it";
+        if (point.gate && !save.puzzleSolved) return "EXAMINE SEALED DOOR     •     Resolve the receiver readings to open it";
+        if (point.gate) return "EXAMINE THE OPEN PASSAGE";
         if (point.id == "maintenance_memo" && !save.puzzleSolved) return "The calibration room remains sealed";
         if (point.id == "supervisor_addendum" && !HasEvidence("maintenance_memo")) return "The binder is clipped shut • find the service-line memo";
         if (point.puzzle && !HasPuzzleEvidence()) return "Terminal needs the carbon slip, alignment card, and temperature strip";
         if (point.fileCorrection && !HasEvidence("supervisor_addendum")) return "A linked correction needs the supervisor's draft";
-        return "E   " + point.label.ToUpperInvariant() + "     •     TAB   CASE NOTES";
+        return point.label.ToUpperInvariant() + "     •     TAB   CASE NOTES";
     }
 
     void Interact()
@@ -248,6 +250,11 @@ public sealed class QuietHoursGame : MonoBehaviour
         if (point.gate && !save.puzzleSolved)
         {
             ui.ShowMessage("The brass seal holds. The receiver terminal may establish what produced the later return.");
+            return;
+        }
+        if (point.gate)
+        {
+            ui.ShowMessage("The passage is open. The calibration room lies beyond.");
             return;
         }
         if (point.id == "maintenance_memo" && !save.puzzleSolved)
@@ -520,3 +527,4 @@ public sealed class QuietHoursGame : MonoBehaviour
         if (interactionAudio != null && clip != null) interactionAudio.PlayOneShot(clip, volume);
     }
 }
+

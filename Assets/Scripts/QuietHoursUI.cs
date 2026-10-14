@@ -215,9 +215,9 @@ public sealed class QuietHoursUI : MonoBehaviour
         MakeButton(modal.transform, "Begin another investigation", 20, new Vector2(0.5f, 0.11f), new Vector2(380, 60), restart);
     }
 
-    public void ShowMessage(string message, bool pause = false)
+    public void ShowMessage(string message, bool toast = true)
     {
-        if (pause) hintToast.text = message;
+        if (toast) hintToast.text = message;
         else promptText.text = message;
         toastTimer = 3.2f;
     }
@@ -357,3 +357,4 @@ public sealed class QuietHoursUI : MonoBehaviour
     static Color CreamColor => ColorValue(Cream);
     static Color MutedColor => ColorValue(Muted);
 }
+
